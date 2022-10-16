@@ -1,20 +1,23 @@
 const notes = require("express").Router();
-const { readFromFile, readAndAppend } = require("../helpers/fsUtils");
+const {
+  readFromFile,
+  readAndAppend,
+  readAndDelete,
+} = require("../helpers/fsUtils");
 const uuid = require("../helpers/uuid");
 
 notes.get("/", (req, res) => {
-  console.info(`${req.method} request received for feedback`);
+  console.info(`${req.method} request received for notes`);
 
   readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
 });
 
 notes.post("/", (req, res) => {
-  console.info(`${req.method} request received to submit feedback`);
+  console.info(`${req.method} request received to submit note`);
 
   const { title, text } = req.body;
 
   if (title && text) {
-    // Variable for the object we will save
     const newNote = {
       title,
       text,
@@ -30,7 +33,26 @@ notes.post("/", (req, res) => {
 
     res.json(response);
   } else {
-    res.json("Error in posting feedback");
+    res.json("Error in posting note");
+  }
+});
+
+notes.delete("/:id", (req, res) => {
+  console.info(`${req.method} request received to delete note`);
+
+  const id = req.params.id;
+
+  if (id) {
+    readAndDelete(id, "./db/db.json");
+
+    // const response = {
+    //   status: "success",
+    //   body: "Successfully deleted note."
+    // }
+
+    res.json("Successfully deleted note.");
+  } else {
+    res.json("Error in deleting note.");
   }
 });
 
