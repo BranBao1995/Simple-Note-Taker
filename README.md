@@ -25,7 +25,7 @@
 
 ## Usage
 
-- Link to Heroku hosting: [https://immense-lowlands-89088.herokuapp.com/](https://immense-lowlands-89088.herokuapp.com/
+- Link to Heroku hosting: [https://immense-lowlands-89088.herokuapp.com/](https://immense-lowlands-89088.herokuapp.com/)
 
 - Link to the Github Repository: [https://github.com/BranBao1995/Simple-Note-Taker](https://github.com/BranBao1995/Simple-Note-Taker)
 
