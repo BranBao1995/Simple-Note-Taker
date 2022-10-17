@@ -6,12 +6,14 @@ const {
 } = require("../helpers/fsUtils");
 const uuid = require("../helpers/uuid");
 
+// Handles the GET request
 notes.get("/", (req, res) => {
   console.info(`${req.method} request received for notes`);
 
   readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
 });
 
+// Handles the POST request
 notes.post("/", (req, res) => {
   console.info(`${req.method} request received to submit note`);
 
@@ -37,18 +39,15 @@ notes.post("/", (req, res) => {
   }
 });
 
+// Handles the DELETE request
 notes.delete("/:id", (req, res) => {
   console.info(`${req.method} request received to delete note`);
 
+  // save target ID to an variable
   const id = req.params.id;
 
   if (id) {
     readAndDelete(id, "./db/db.json");
-
-    // const response = {
-    //   status: "success",
-    //   body: "Successfully deleted note."
-    // }
 
     res.json("Successfully deleted note.");
   } else {

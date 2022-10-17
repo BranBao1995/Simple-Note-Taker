@@ -8,14 +8,16 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api", api);
+app.use("/api", api); // save all routes with /api endpoint in the index.js fle
 
-app.use(express.static("public"));
+app.use(express.static("public")); // set public folder to static
 
+// renders the homepage
 app.get("/", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/index.html"))
 );
 
+// renders the notes page
 app.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/notes.html"))
 );
