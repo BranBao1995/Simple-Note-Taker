@@ -25,7 +25,7 @@
 
 ## Usage
 
-- Link to Heroku hosting: [https://app.castify.com/view/8a08248a-ef15-4ab6-a3b9-668be6ab9a46](https://app.castify.com/view/8a08248a-ef15-4ab6-a3b9-668be6ab9a46)
+- Link to Heroku hosting: [https://immense-lowlands-89088.herokuapp.com/](https://immense-lowlands-89088.herokuapp.com/
 
 - Link to the Github Repository: [https://github.com/BranBao1995/Simple-Note-Taker](https://github.com/BranBao1995/Simple-Note-Taker)
 
